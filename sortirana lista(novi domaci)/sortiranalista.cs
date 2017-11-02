@@ -12,7 +12,6 @@ namespace List{
     {
       Node newNode = new Node(data);
       newNode.Next = head;
-      newNode.Last = head;
       head = newNode;
       lenght++;
     }
@@ -24,7 +23,7 @@ namespace List{
       }
       Node temp = head;
       Node tempstariji;
-      while(temp.Data < newNode.Data && temp.Next != null){
+      do{
         if(temp.Data > newNode.Data && temp == head){
           AddFirst(data);
           lenght++;
@@ -43,7 +42,7 @@ namespace List{
           lenght++
         }
         temp = temp.Next;
-      }
+      }while(temp.Data < newNode.Data && temp.Next != null)
     }
 
     public bool IsEmpty(){

@@ -31,6 +31,7 @@ namespace List{
         newNode.Next = head;
         newNode.Last = tail;
         tail = newNode;
+        head.Last = newNode;
         lenght++;
       }
     }
