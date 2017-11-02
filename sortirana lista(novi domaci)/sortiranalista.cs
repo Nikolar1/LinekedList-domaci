@@ -41,6 +41,7 @@ namespace List{
           newNode.Last = temp;
           lenght++
         }
+        tempstariji = temp;
         temp = temp.Next;
       }while(temp.Data < newNode.Data && temp.Next != null)
     }
@@ -53,6 +54,56 @@ namespace List{
       return provera;
     }
 
+
+
+    public void DeleteFirst(){
+      intNode temp = head;
+      head = head.Next;
+      temp = null;
+    }
+
+    public void DeleteLast(){
+      Node temp = head;
+      while(temp.Next != null){
+        temp = temp.Next;
+      }
+      Node tempstariji = temp.Last;
+      tempstariji.Next = null;
+      temp = null;
+    }
+
+    public bool Delete(int index){
+      bool provera = true;
+      if(index == 0){
+        DeleteFirst();
+      }
+      else if(IsEmpty()){
+          provera = false;
+      }
+      else if(Length() < index+1){
+        provera = false;
+      }
+      else if(Length() == index){
+        DeleteLast();
+      }
+      else{
+        Node temp = head;
+        Node tempstariji = head;
+        int brojac = 0;
+        while(brojac < index)
+        {
+            tempstariji = temp;
+            temp = temp.Next;
+            brojac++;
+        }
+        Node tempnoviji;
+        tempstariji.Next = temp.Next;
+        tempnoviji = temp.Next;
+        tempnoviji.Last = tempstariji
+        temp = null;
+      }
+      return provera;
+    }
     // Funkcije su slicne kao kod ostalih lista uz male promene
   }
 }
