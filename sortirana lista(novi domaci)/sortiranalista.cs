@@ -45,6 +45,14 @@ namespace List{
         temp = temp.Next;
       }while(temp.Data < newNode.Data && temp.Next != null)
     }
+    
+    public void Merge(Node head2){
+      Node temp = head2;
+      while(temp!= null){
+        Add(temp.Data);
+        temp=temp.Next;
+      }
+    }
 
     public bool IsEmpty(){
       bool provera = false;
