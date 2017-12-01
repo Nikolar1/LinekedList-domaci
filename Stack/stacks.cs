@@ -1,14 +1,39 @@
 namespace stack{
-	class intStack{
+	class IntStack{
 		private IntNode head;
+		private int kapacitet = 50;
+		private int brel = 0;
+		
+		public void IsFull(){
+			bool provera = false;
+			if(brel>=kapacitet){
+				provera = true;
+			}
+			return provera;
+		}
+		
 		public void Push(int value){
-			IntNode newintnode = new IntNode(value);
-			newintnode.Last = head;
-			head = newintnode;
+			if (!IsFull()){
+				IntNode newintnode = new IntNode(value);
+				newintnode.Last = head;
+				head = newintnode;
+				brel++;
+			}
+		}
+		
+		public bool IsEmpty(){
+			bool provera = false;
+			if (head == null){
+				provera==true;
+			}
+			return provera;
 		}
 		
 		public void Pop(){
-			head = head.Last;
+			if(!IsEmpty()){
+				head = head.Last;
+				brel--;
+			}
 		}
 		
 		public int Top(){
